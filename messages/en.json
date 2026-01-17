@@ -1,0 +1,454 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "process": "Process",
+      "blog": "Blog",
+      "contact": "Contact",
+      "calculator": "Calculator"
+    },
+    "cta": {
+      "start_project": "Start Project",
+      "learn_more": "Learn More",
+      "contact_us": "Contact Us",
+      "view_portfolio": "View Portfolio",
+      "calculate_budget": "Calculate Budget",
+      "read_more": "Read More",
+      "view_all": "View All",
+      "send": "Send",
+      "next": "Next",
+      "previous": "Previous",
+      "finish": "Finish"
+    },
+    "footer": {
+      "tagline": "We transform ideas into successful digital products",
+      "quick_links": "Quick Links",
+      "services": "Services",
+      "get_in_touch": "Get in Touch",
+      "copyright": "© 2026 J2 Tech Solutions. All rights reserved."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "We Transform Your Ideas into Successful Digital Products",
+      "subtitle": "We develop MVPs, Mobile Apps and SaaS for startups and companies that want to scale fast with quality and innovation",
+      "cta_primary": "Start Project",
+      "cta_secondary": "View Portfolio",
+      "stats": {
+        "projects": "Projects",
+        "clients": "Clients",
+        "satisfaction": "Satisfaction"
+      }
+    },
+    "benefits": {
+      "title": "Why choose J2 Tech?",
+      "speed": {
+        "title": "Speed",
+        "description": "We deliver your MVP in 4-6 weeks without compromising code quality"
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "Clean, scalable and well-documented code following best practices"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Continuous support and maintenance to ensure your product's success"
+      }
+    },
+    "socialProof": {
+      "trusted": "Trusted by 50+ startups and small businesses"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Complete software development solutions",
+      "mvp": {
+        "title": "MVP Development",
+        "description": "We validate your idea with a high-quality minimum viable product",
+        "price": "From $3,500"
+      },
+      "apps": {
+        "title": "Mobile Apps",
+        "description": "Native iOS and Android apps for any type of business",
+        "price": "From $6,000"
+      },
+      "saas": {
+        "title": "SaaS Platforms",
+        "description": "Scalable software as a service ready to grow",
+        "price": "From $9,000"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Complete online stores with integrated payments and management",
+        "price": "From $5,000"
+      },
+      "corporate": {
+        "title": "Corporate Systems",
+        "description": "Custom enterprise solutions to optimize your processes",
+        "price": "On request"
+      },
+      "institutional": {
+        "title": "Institutional Website",
+        "description": "Professional website to showcase your company and attract clients",
+        "price": "From $2,000"
+      },
+      "monthlySupport": {
+        "title": "Monthly Support",
+        "description": "Continuous maintenance, updates, and technical support - 10 hours/month included",
+        "price": "From $1,000/mo"
+      }
+    },
+    "process": {
+      "title": "How We Work",
+      "subtitle": "Agile and transparent 5-step process",
+      "discovery": "Discovery",
+      "planning": "Planning",
+      "development": "Development",
+      "testing": "Testing",
+      "launch": "Launch"
+    },
+    "portfolio": {
+      "title": "Featured Projects",
+      "subtitle": "Check out some of the projects we've developed"
+    },
+    "blog": {
+      "title": "From the Blog",
+      "subtitle": "Insights on technology and software development"
+    },
+    "cta": {
+      "title": "Ready to Turn Your Idea into Reality?",
+      "subtitle": "Talk to our specialists and receive a personalized proposal"
+    },
+    "cta_final": {
+      "title": "Ready to Turn Your Idea into Reality?",
+      "subtitle": "Talk to our specialists and receive a personalized proposal"
+    }
+  },
+  "about": {
+    "title": "About J2 Tech Solutions",
+    "subtitle": "We are specialists in transforming ideas into successful digital products",
+    "history_title": "Our Story",
+    "history_content": "J2 Tech Solutions was born with the purpose of accelerating the digital transformation of startups and companies. With years of experience in the market, we develop technological solutions that drive businesses and generate real results.",
+    "mission_title": "Mission",
+    "mission_content": "To develop high-quality software that transforms ideas into successful businesses, with speed and technical excellence.",
+    "vision_title": "Vision",
+    "vision_content": "To be a reference in software development for startups and innovative companies in Latin America.",
+    "values_title": "Values",
+    "values_content": "Quality above all, Total transparency, Constant innovation, Focus on results",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "years": "Years",
+      "satisfaction": "Satisfaction"
+    },
+    "cta_title": "Shall we work together?",
+    "cta_subtitle": "Get in touch and let's turn your idea into reality"
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "subtitle": "Insights on technology, software development and innovation"
+    },
+    "search": "Search articles...",
+    "categories": "Categories",
+    "read_time": "min read"
+  },
+  "calculator": {
+    "title": "Budget Calculator",
+    "subtitle": "Get an estimate of your project cost in a few steps",
+    "step1": {
+      "title": "Project Type",
+      "subtitle": "What type of project do you need?"
+    },
+    "step2": {
+      "title": "Complexity",
+      "subtitle": "What is the project complexity?",
+      "simple": "Simple",
+      "simple_desc": "1-3 screens/basic features",
+      "medium": "Medium",
+      "medium_desc": "4-10 screens/features",
+      "complex": "Complex",
+      "complex_desc": "10+ screens/advanced features"
+    },
+    "step3": {
+      "title": "Features",
+      "subtitle": "What features do you need?",
+      "auth": "User authentication",
+      "admin": "Admin panel",
+      "payments": "Online payments",
+      "notifications": "Push notifications",
+      "chat": "Real-time chat",
+      "api": "External API integration",
+      "upload": "File upload",
+      "analytics": "Reports/Analytics"
+    },
+    "step4": {
+      "title": "Timeline",
+      "subtitle": "How urgent is the project?",
+      "urgent": "Urgent (< 30 days)",
+      "urgent_desc": "+30% in price",
+      "normal": "Normal (30-60 days)",
+      "normal_desc": "Standard timeline",
+      "flexible": "Flexible (60+ days)",
+      "flexible_desc": "-15% discount"
+    },
+    "result": {
+      "title": "Your Estimate",
+      "price_range": "Price Range",
+      "timeline": "Estimated Timeline",
+      "weeks": "weeks",
+      "based_on": "Based on:",
+      "disclaimer": "This is an initial estimate. The final price may vary after detailed analysis.",
+      "cta_title": "Want a detailed proposal?",
+      "cta_subtitle": "Fill in your details and we'll get in touch",
+      "name": "Name",
+      "email": "Email",
+      "phone": "WhatsApp",
+      "submit": "Request Proposal",
+      "recalculate": "Recalculate",
+      "download": "Download PDF"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete software development solutions from MVP to scalable product",
+    "benefits": "Benefits:",
+    "technologies": "Technologies:",
+    "timeline": "Timeline:",
+    "cta_title": "Ready to start your project?",
+    "cta_subtitle": "Talk to our specialists and receive a personalized proposal",
+    "contact_button": "Get in Touch",
+    "calculate_button": "Calculate Budget",
+    "mvp": {
+      "title": "MVP Development",
+      "desc": "We develop your Minimum Viable Product with essential features to quickly validate your idea in the market.",
+      "price": "From $3,500",
+      "timeline": "3-5 weeks",
+      "tech": "React, Next.js, Node.js, PostgreSQL",
+      "features": [
+        "Fast idea validation",
+        "Reduced time-to-market",
+        "Optimized costs",
+        "Feedback-based iteration"
+      ]
+    },
+    "apps": {
+      "title": "Mobile Apps",
+      "desc": "We create native mobile apps for iOS and Android with excellent performance and user experience.",
+      "price": "From $6,000",
+      "timeline": "5-10 weeks",
+      "tech": "React Native, Flutter, iOS, Android",
+      "features": [
+        "Responsive and intuitive design",
+        "Optimized performance",
+        "API integration",
+        "Store publication"
+      ]
+    },
+    "saas": {
+      "title": "SaaS Platforms",
+      "desc": "We develop scalable SaaS platforms with robust architecture ready to grow with your business.",
+      "price": "From $9,000",
+      "timeline": "6-12 weeks",
+      "tech": "Next.js, Node.js, PostgreSQL, AWS",
+      "features": [
+        "Scalable architecture",
+        "Multi-tenancy",
+        "Payment system",
+        "Integrated analytics"
+      ]
+    },
+    "ecommerce": {
+      "title": "E-commerce",
+      "desc": "We create complete online stores with product management, integrated payments and admin panel.",
+      "price": "From $5,000",
+      "timeline": "5-8 weeks",
+      "tech": "Next.js, Stripe, Node.js, PostgreSQL",
+      "features": [
+        "Product catalog",
+        "Cart and checkout",
+        "Integrated payments",
+        "Admin panel"
+      ]
+    },
+    "corporate": {
+      "title": "Corporate Systems",
+      "desc": "We develop custom corporate systems to optimize processes and increase your company's productivity.",
+      "price": "On request",
+      "timeline": "Defined per project",
+      "tech": "Technology defined per project",
+      "features": [
+        "Custom solutions",
+        "Legacy system integration",
+        "Process automation",
+        "Advanced reports"
+      ]
+    },
+    "institutional": {
+      "title": "Institutional Website",
+      "desc": "We create professional institutional websites to showcase your company, products and services attractively.",
+      "price": "From $2,000",
+      "timeline": "2-4 weeks",
+      "tech": "Next.js, React, Tailwind CSS",
+      "features": [
+        "Modern responsive design",
+        "SEO optimized",
+        "Optimized performance",
+        "Contact form"
+      ]
+    },
+    "monthlySupport": {
+      "title": "Monthly Support",
+      "desc": "We offer continuous maintenance, updates, fixes and technical support to keep your system always running.",
+      "price": "From $1,000/month",
+      "timeline": "Continuous service",
+      "tech": "Compatible with all projects",
+      "features": [
+        "10 hours/month included",
+        "Bug fixes",
+        "Security updates",
+        "Performance improvements",
+        "Dedicated technical support"
+      ]
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Projects that transformed businesses and generated results",
+    "status_production": "In Production",
+    "status_beta": "Beta",
+    "view_project": "View Project",
+    "filters": {
+      "all": "All",
+      "mvp": "MVP",
+      "saas": "SaaS",
+      "apps": "Apps",
+      "ecommerce": "E-commerce"
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "Agile and transparent methodology to ensure your project's success",
+    "step": "STEP",
+    "what_we_do": "What we do:",
+    "deliverables": "Deliverables:",
+    "cta_title": "Ready to start?",
+    "cta_subtitle": "Schedule a kick-off meeting and let's start your project",
+    "contact_button": "Get in Touch",
+    "discovery": {
+      "title": "Discovery",
+      "duration": "3-5 days",
+      "description": "We deeply understand your business, objectives and project requirements.",
+      "activities": [
+        "Business understanding",
+        "Requirements definition",
+        "Journey mapping",
+        "Competitor analysis"
+      ],
+      "deliverables": [
+        "Requirements document",
+        "Detailed timeline",
+        "Technical proposal"
+      ]
+    },
+    "planning": {
+      "title": "Planning",
+      "duration": "1 week",
+      "description": "We plan the architecture, design and development roadmap.",
+      "activities": [
+        "System architecture",
+        "Interface design",
+        "Development roadmap",
+        "Project setup"
+      ],
+      "deliverables": [
+        "High-fidelity prototypes",
+        "Technical documentation",
+        "Sprint planning"
+      ]
+    },
+    "development": {
+      "title": "Development",
+      "duration": "2-8 weeks",
+      "description": "We develop your product with agile sprints and incremental deliveries.",
+      "activities": [
+        "Sprint development",
+        "Code reviews",
+        "Unit tests",
+        "Weekly demos"
+      ],
+      "deliverables": [
+        "Versioned code",
+        "Test builds",
+        "Technical documentation"
+      ]
+    },
+    "testing": {
+      "title": "Testing",
+      "duration": "1 week",
+      "description": "We ensure quality with rigorous testing in multiple scenarios.",
+      "activities": [
+        "Functional testing",
+        "Performance testing",
+        "Security testing",
+        "Bug fixes"
+      ],
+      "deliverables": [
+        "Test report",
+        "Stable product",
+        "Updated documentation"
+      ]
+    },
+    "launch": {
+      "title": "Launch",
+      "duration": "3-5 days",
+      "description": "We launch your product to market with full support.",
+      "activities": [
+        "Production deploy",
+        "Infrastructure setup",
+        "Team training",
+        "Initial monitoring"
+      ],
+      "deliverables": [
+        "Product in production",
+        "User documentation",
+        "Support plan"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Let's Talk?",
+    "subtitle": "Get in touch and tell us about your project",
+    "form_title": "Send your message",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "company_label": "Company",
+    "company_placeholder": "Your company",
+    "project_type_label": "Project Type",
+    "project_type_placeholder": "Select...",
+    "project_type_mvp": "MVP",
+    "project_type_app": "Mobile App",
+    "project_type_saas": "SaaS",
+    "project_type_ecommerce": "E-commerce",
+    "project_type_corporate": "Corporate System",
+    "project_type_other": "Other",
+    "message_label": "Message",
+    "message_placeholder": "Tell us about your project...",
+    "consent_label": "I agree to receive communications from J2 Tech Solutions",
+    "submit_button": "Send Message",
+    "submitting": "Sending...",
+    "success_message": "Message sent successfully! We'll get in touch soon.",
+    "error_message": "Error sending message. Please try again.",
+    "info_title": "Contact Information",
+    "email_title": "Email",
+    "location_title": "Location",
+    "location_text": "São Paulo, Brazil",
+    "hours_title": "Business Hours",
+    "hours_text": "Monday to Friday, 9am - 6pm",
+    "required": "*"
+  }
+}

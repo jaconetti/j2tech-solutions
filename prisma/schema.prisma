@@ -1,0 +1,76 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db"
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  titleEn     String?
+  description String
+  descriptionEn String?
+  content     String
+  contentEn   String?
+  coverImage  String?
+  category    String
+  tags        String   // JSON string: '["tag1","tag2"]'
+  readTime    Int      @default(5)
+  published   Boolean  @default(true)
+  featured    Boolean  @default(false)
+  views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([published])
+}
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+model Contact {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  projectType String
+  budget      String?
+  message     String
+  status      String   @default("new")
+  createdAt   DateTime @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model CalculatorLead {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String?
+  projectType  String
+  complexity   String
+  features     String   // JSON string: '["feature1","feature2"]'
+  deadline     String
+  estimateMin  Int
+  estimateMax  Int
+  timeline     String
+  status       String   @default("new")
+  createdAt    DateTime @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
