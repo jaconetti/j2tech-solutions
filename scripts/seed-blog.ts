@@ -238,8 +238,18 @@ async function main() {
     for (const post of blogPostsPT) {
       const created = await prisma.post.create({
         data: {
-          ...post,
-          tags: JSON.stringify(post.tags)
+          slug: post.slug,
+          title: post.title,
+          titleEn: post.titleEn,
+          description: post.description,
+          descriptionEn: post.descriptionEn,
+          content: post.content,
+          contentEn: post.contentEn,
+          category: post.category,
+          tags: JSON.stringify(post.tags) as any,
+          readTime: post.readTime,
+          featured: post.featured,
+          published: post.published
         },
       })
       console.log(`✅ Created: ${post.title}`)

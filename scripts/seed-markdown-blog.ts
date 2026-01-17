@@ -4543,7 +4543,20 @@ async function main() {
   // Criar novos posts
   for (const post of blogPosts) {
     await prisma.post.create({
-      data: post,
+      data: {
+        slug: post.slug,
+        title: post.title,
+        titleEn: post.titleEn,
+        description: post.description,
+        descriptionEn: post.descriptionEn,
+        content: post.content,
+        contentEn: post.contentEn,
+        category: post.category,
+        tags: post.tags as any,
+        readTime: post.readTime,
+        featured: post.featured,
+        published: post.published
+      },
     })
     console.log(`✅ Created post: ${post.title}`)
   }
