@@ -160,7 +160,14 @@
     "subtitle": "Get an estimate of your project cost in a few steps",
     "step1": {
       "title": "Project Type",
-      "subtitle": "What type of project do you need?"
+      "subtitle": "What type of project do you need?",
+      "mvp": "MVP",
+      "app_mobile": "Mobile App",
+      "saas": "SaaS",
+      "ecommerce": "E-commerce",
+      "corporate": "Corporate System",
+      "institutional": "Institutional Website",
+      "monthly_support": "Monthly Support"
     },
     "step2": {
       "title": "Complexity",

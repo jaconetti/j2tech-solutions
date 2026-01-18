@@ -9,18 +9,22 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ArrowLeft, ArrowRight, Calculator as CalcIcon, Rocket, Smartphone, Cloud, ShoppingCart, Building2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Calculator as CalcIcon, Rocket, Smartphone, Cloud, ShoppingCart, Building2, Globe, Headphones } from 'lucide-react'
 import { analytics } from '@/lib/analytics'
+import { useTranslations } from 'next-intl'
 
-const projectTypes = [
-  { key: 'mvp', icon: Rocket, label: 'MVP' },
-  { key: 'app_mobile', icon: Smartphone, label: 'App Mobile' },
-  { key: 'saas', icon: Cloud, label: 'SaaS' },
-  { key: 'ecommerce', icon: ShoppingCart, label: 'E-commerce' },
-  { key: 'corporate', icon: Building2, label: 'Sistema Corporativo' }
+const projectTypesData = [
+  { key: 'mvp', icon: Rocket },
+  { key: 'app_mobile', icon: Smartphone },
+  { key: 'saas', icon: Cloud },
+  { key: 'ecommerce', icon: ShoppingCart },
+  { key: 'corporate', icon: Building2 },
+  { key: 'institutional', icon: Globe },
+  { key: 'monthly_support', icon: Headphones }
 ]
 
 export default function CalculatorPage() {
+  const t = useTranslations('calculator')
   const [step, setStep] = useState(1)
   const [projectType, setProjectType] = useState('')
   const [complexity, setComplexity] = useState('')
@@ -118,7 +122,7 @@ export default function CalculatorPage() {
             <CardContent>
               {step === 1 && (
                 <div className="grid gap-4 md:grid-cols-2">
-                  {projectTypes.map(type => {
+                  {projectTypesData.map(type => {
                     const Icon = type.icon
                     return (
                       <button
@@ -131,7 +135,7 @@ export default function CalculatorPage() {
                         }`}
                       >
                         <Icon className="h-8 w-8 flex-shrink-0" />
-                        <span className="font-medium">{type.label}</span>
+                        <span className="font-medium">{t(`step1.${type.key}`)}</span>
                       </button>
                     )
                   })}

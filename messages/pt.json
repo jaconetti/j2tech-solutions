@@ -160,7 +160,14 @@
     "subtitle": "Faça uma estimativa do custo do seu projeto em poucos passos",
     "step1": {
       "title": "Tipo de Projeto",
-      "subtitle": "Que tipo de projeto você precisa?"
+      "subtitle": "Que tipo de projeto você precisa?",
+      "mvp": "MVP",
+      "app_mobile": "App Mobile",
+      "saas": "SaaS",
+      "ecommerce": "E-commerce",
+      "corporate": "Sistema Corporativo",
+      "institutional": "Site Institucional",
+      "monthly_support": "Suporte Mensal"
     },
     "step2": {
       "title": "Complexidade",

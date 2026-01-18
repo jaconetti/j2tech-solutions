@@ -38,7 +38,9 @@ const BASE_TIMELINE: Record<string, number> = {
   app_mobile: 8,
   saas: 12,
   ecommerce: 8,
-  corporate: 12
+  corporate: 12,
+  institutional: 3,
+  monthly_support: 1
 }
 
 export function calculateEstimate(data: CalculatorData): CalculatorEstimate {
