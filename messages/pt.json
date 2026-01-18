@@ -214,8 +214,12 @@
       "email": "Email",
       "phone": "WhatsApp",
       "submit": "Solicitar Proposta",
+      "submitting": "Enviando...",
       "recalculate": "Recalcular",
-      "download": "Baixar PDF"
+      "download": "Baixar PDF",
+      "previous": "Voltar",
+      "next": "Próximo",
+      "view_estimate": "Ver Estimativa"
     }
   },
   "services": {

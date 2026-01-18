@@ -23,7 +23,7 @@ const projectTypesData = [
   { key: 'monthly_support', icon: Headphones }
 ]
 
-export default function CalculatorPage() {
+export default function CalculatorPage({ params: { locale } }: { params: { locale: string } }) {
   const t = useTranslations('calculator')
   const [step, setStep] = useState(1)
   const [projectType, setProjectType] = useState('')
@@ -88,9 +88,9 @@ export default function CalculatorPage() {
         <div className="container mx-auto max-w-4xl px-4">
           <div className="text-center">
             <CalcIcon className="mx-auto mb-4 h-16 w-16 text-[rgb(var(--primary))]" />
-            <h1 className="mb-4 text-4xl font-bold">Calculadora de Orçamento</h1>
+            <h1 className="mb-4 text-4xl font-bold">{t('title')}</h1>
             <p className="text-lg text-[rgb(var(--muted))]">
-              Faça uma estimativa do custo do seu projeto em poucos passos
+              {t('subtitle')}
             </p>
           </div>
 
@@ -112,11 +112,11 @@ export default function CalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-center">
-                {step === 1 && 'Tipo de Projeto'}
-                {step === 2 && 'Complexidade'}
-                {step === 3 && 'Funcionalidades'}
-                {step === 4 && 'Prazo'}
-                {step === 5 && 'Sua Estimativa'}
+                {step === 1 && t('step1.title')}
+                {step === 2 && t('step2.title')}
+                {step === 3 && t('step3.title')}
+                {step === 4 && t('step4.title')}
+                {step === 5 && t('result.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -145,9 +145,9 @@ export default function CalculatorPage() {
               {step === 2 && (
                 <div className="space-y-4">
                   {[
-                    { key: 'simple', label: 'Simples', desc: '1-3 telas/funcionalidades básicas' },
-                    { key: 'medium', label: 'Média', desc: '4-10 telas/funcionalidades' },
-                    { key: 'complex', label: 'Complexa', desc: '10+ telas/funcionalidades avançadas' }
+                    { key: 'simple' },
+                    { key: 'medium' },
+                    { key: 'complex' }
                   ].map(comp => (
                     <button
                       key={comp.key}
@@ -158,8 +158,8 @@ export default function CalculatorPage() {
                           : 'border-[rgb(var(--border))] hover:border-[rgb(var(--primary))]/50'
                       }`}
                     >
-                      <div className="mb-1 font-semibold">{comp.label}</div>
-                      <div className="text-sm text-[rgb(var(--muted))]">{comp.desc}</div>
+                      <div className="mb-1 font-semibold">{t(`step2.${comp.key}`)}</div>
+                      <div className="text-sm text-[rgb(var(--muted))]">{t(`step2.${comp.key}_desc`)}</div>
                     </button>
                   ))}
                 </div>
@@ -168,25 +168,19 @@ export default function CalculatorPage() {
               {step === 3 && (
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
-                    { key: 'auth', label: 'Autenticação de usuários' },
-                    { key: 'admin', label: 'Painel administrativo' },
-                    { key: 'payments', label: 'Pagamentos online' },
-                    { key: 'notifications', label: 'Notificações push' },
-                    { key: 'chat', label: 'Chat em tempo real' },
-                    { key: 'api', label: 'Integração com APIs externas' },
-                    { key: 'upload', label: 'Upload de arquivos' },
-                    { key: 'analytics', label: 'Relatórios/Analytics' }
+                    'auth', 'admin', 'payments', 'notifications',
+                    'chat', 'api', 'upload', 'analytics'
                   ].map(feature => (
                     <button
-                      key={feature.key}
-                      onClick={() => toggleFeature(feature.key)}
+                      key={feature}
+                      onClick={() => toggleFeature(feature)}
                       className={`rounded-lg border-2 p-3 text-left text-sm transition-all ${
-                        features.includes(feature.key)
+                        features.includes(feature)
                           ? 'border-[rgb(var(--primary))] bg-[rgb(var(--primary))]/10'
                           : 'border-[rgb(var(--border))] hover:border-[rgb(var(--primary))]/50'
                       }`}
                     >
-                      {feature.label}
+                      {t(`step3.${feature}`)}
                     </button>
                   ))}
                 </div>
@@ -195,9 +189,9 @@ export default function CalculatorPage() {
               {step === 4 && (
                 <div className="space-y-4">
                   {[
-                    { key: 'urgent', label: 'Urgente (< 30 dias)', desc: '+30% no valor' },
-                    { key: 'normal', label: 'Normal (30-60 dias)', desc: 'Prazo padrão' },
-                    { key: 'flexible', label: 'Flexível (60+ dias)', desc: '-15% desconto' }
+                    { key: 'urgent' },
+                    { key: 'normal' },
+                    { key: 'flexible' }
                   ].map(dead => (
                     <button
                       key={dead.key}
@@ -208,8 +202,8 @@ export default function CalculatorPage() {
                           : 'border-[rgb(var(--border))] hover:border-[rgb(var(--primary))]/50'
                       }`}
                     >
-                      <div className="mb-1 font-semibold">{dead.label}</div>
-                      <div className="text-sm text-[rgb(var(--muted))]">{dead.desc}</div>
+                      <div className="mb-1 font-semibold">{t(`step4.${dead.key}`)}</div>
+                      <div className="text-sm text-[rgb(var(--muted))]">{t(`step4.${dead.key}_desc`)}</div>
                     </button>
                   ))}
                 </div>
@@ -219,49 +213,49 @@ export default function CalculatorPage() {
                 <div className="space-y-6">
                   <div className="rounded-xl bg-gradient-to-r from-[rgb(var(--primary))]/20 to-[rgb(var(--secondary))]/20 p-8 text-center">
                     <div className="mb-2 text-sm font-semibold text-[rgb(var(--muted))]">
-                      Faixa de Preço
+                      {t('result.price_range')}
                     </div>
                     <div className="text-4xl font-bold gradient-text">
-                      {formatCurrency(estimate.min)} - {formatCurrency(estimate.max)}
+                      {formatCurrency(estimate.min, locale)} - {formatCurrency(estimate.max, locale)}
                     </div>
                     <div className="mt-4 text-sm text-[rgb(var(--muted))]">
-                      Prazo: {estimate.timeline} semanas
+                      {t('result.timeline')}: {estimate.timeline} {t('result.weeks')}
                     </div>
                   </div>
 
                   <div className="text-sm text-[rgb(var(--muted))]">
-                    <p className="mb-2 font-semibold">Baseado em:</p>
+                    <p className="mb-2 font-semibold">{t('result.based_on')}</p>
                     <ul className="space-y-1">
-                      <li>• Projeto: {projectType}</li>
-                      <li>• Complexidade: {complexity}</li>
-                      <li>• {features.length} funcionalidades adicionais</li>
-                      <li>• Prazo: {deadline}</li>
+                      <li>• {t('step1.title')}: {t(`step1.${projectType}`)}</li>
+                      <li>• {t('step2.title')}: {t(`step2.${complexity}`)}</li>
+                      <li>• {features.length} {t('step3.title').toLowerCase()}</li>
+                      <li>• {t('step4.title')}: {t(`step4.${deadline}`)}</li>
                     </ul>
                   </div>
 
                   <Card className="bg-[rgb(var(--surface))]">
                     <CardHeader>
-                      <CardTitle className="text-xl">Quer uma proposta detalhada?</CardTitle>
-                      <p className="text-sm text-[rgb(var(--muted))]">Preencha seus dados e entraremos em contato</p>
+                      <CardTitle className="text-xl">{t('result.cta_title')}</CardTitle>
+                      <p className="text-sm text-[rgb(var(--muted))]">{t('result.cta_subtitle')}</p>
                     </CardHeader>
                     <CardContent>
                       <form onSubmit={handleSubmit(onSubmitLead)} className="space-y-4">
                         <div>
-                          <Label htmlFor="name">Nome</Label>
+                          <Label htmlFor="name">{t('result.name')}</Label>
                           <Input id="name" {...register('name')} className="mt-2" />
                           {errors?.name && <p className="mt-1 text-sm text-red-500">{String(errors?.name?.message ?? '')}</p>}
                         </div>
                         <div>
-                          <Label htmlFor="email">Email</Label>
+                          <Label htmlFor="email">{t('result.email')}</Label>
                           <Input id="email" type="email" {...register('email')} className="mt-2" />
                           {errors?.email && <p className="mt-1 text-sm text-red-500">{String(errors?.email?.message ?? '')}</p>}
                         </div>
                         <div>
-                          <Label htmlFor="phone">WhatsApp</Label>
+                          <Label htmlFor="phone">{t('result.phone')}</Label>
                           <Input id="phone" {...register('phone')} className="mt-2" />
                         </div>
                         <Button type="submit" variant="gradient" className="w-full" disabled={isSubmitting}>
-                          {isSubmitting ? 'Enviando...' : 'Solicitar Proposta'}
+                          {isSubmitting ? t('result.submitting') : t('result.submit')}
                         </Button>
                       </form>
                     </CardContent>
@@ -273,13 +267,13 @@ export default function CalculatorPage() {
                 {step > 1 && step < 5 && (
                   <Button variant="outline" onClick={() => setStep(step - 1)}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Voltar
+                    {t('result.previous')}
                   </Button>
                 )}
                 {step === 5 && (
                   <Button variant="outline" onClick={() => { setStep(1); setEstimate(null) }}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Recalcular
+                    {t('result.recalculate')}
                   </Button>
                 )}
                 <div className="ml-auto" />
@@ -293,7 +287,7 @@ export default function CalculatorPage() {
                       (step === 3 && features.length === 0)
                     }
                   >
-                    Próximo
+                    {t('result.next')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 )}
@@ -303,9 +297,10 @@ export default function CalculatorPage() {
                     onClick={handleCalculate}
                     disabled={!deadline}
                   >
-                    Ver Estimativa
+                    {t('result.view_estimate')}
                   </Button>
                 )}
+              </div>
               </div>
             </CardContent>
           </Card>
