@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start -p 3001",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "prisma": {
     "seed": "tsx --require dotenv/config scripts/seed.ts"
@@ -72,6 +73,7 @@
     "@types/jsonwebtoken": "9.0.5",
     "@types/plotly.js": "2.35.5",
     "@types/react-plotly.js": "2.6.3",
+    "@vercel/postgres": "^0.10.0",
     "autoprefixer": "10.4.15",
     "bcryptjs": "2.4.3",
     "chart.js": "4.4.9",
