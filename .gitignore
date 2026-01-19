@@ -55,3 +55,4 @@ prisma/*.db-journal
 
 # OS
 Thumbs.db
+.env*.local
