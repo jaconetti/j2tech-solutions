@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label'
 import { ArrowLeft, ArrowRight, Calculator as CalcIcon, Rocket, Smartphone, Cloud, ShoppingCart, Building2, Globe, Headphones } from 'lucide-react'
 import { analytics } from '@/lib/analytics'
 import { useTranslations } from 'next-intl'
+import { useParams } from 'next/navigation'
 
 const projectTypesData = [
   { key: 'mvp', icon: Rocket },
@@ -23,7 +24,9 @@ const projectTypesData = [
   { key: 'monthly_support', icon: Headphones }
 ]
 
-export default function CalculatorPage({ params: { locale } }: { params: { locale: string } }) {
+export default function CalculatorPage() {
+  const params = useParams()
+  const locale = params.locale as string
   const t = useTranslations('calculator')
   const [step, setStep] = useState(1)
   const [projectType, setProjectType] = useState('')
@@ -300,7 +303,6 @@ export default function CalculatorPage({ params: { locale } }: { params: { local
                     {t('result.view_estimate')}
                   </Button>
                 )}
-              </div>
               </div>
             </CardContent>
           </Card>
