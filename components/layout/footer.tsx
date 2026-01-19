@@ -18,14 +18,17 @@ export default function Footer() {
 
   const services = [
     { href: '/services#mvp', label: 'MVP Development' },
-    { href: '/services#apps', label: t('nav.services') },
+    { href: '/services#apps', label: 'Apps Mobile' },
     { href: '/services#saas', label: 'SaaS' },
-    { href: '/services#ecommerce', label: 'E-commerce' }
+    { href: '/services#ecommerce', label: 'E-commerce' },
+    { href: '/services#corporate', label: t('footer.services_corporate') },
+    { href: '/services#institutional', label: t('footer.services_institutional') },
+    { href: '/services#monthlySupport', label: t('footer.services_support') }
   ]
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com/company/j2tech', label: 'LinkedIn' },
-    { icon: Github, href: 'https://github.com/j2tech', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/j2-tech-solutions', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/jaconetti', label: 'GitHub' },
     { icon: Twitter, href: 'https://twitter.com/j2tech', label: 'Twitter' }
   ]
 
