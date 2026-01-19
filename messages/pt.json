@@ -204,9 +204,19 @@
       "flexible": "Flexível (60+ dias)",
       "flexible_desc": "-15% desconto"
     },
+    "step_support": {
+      "title": "Horas Mensais",
+      "subtitle": "Quantas horas de suporte você precisa por mês?",
+      "10h_desc": "Ideal para sites e sistemas simples",
+      "20h_desc": "Recomendado para apps e sistemas de médio porte",
+      "40h_desc": "Para projetos complexos com demanda alta",
+      "custom": "Customizado",
+      "custom_desc": "Preciso de um plano personalizado"
+    },
     "result": {
       "title": "Sua Estimativa",
       "price_range": "Faixa de Preço",
+      "monthly_price": "Valor Mensal",
       "timeline": "Prazo Estimado",
       "weeks": "semanas",
       "based_on": "Baseado em:",

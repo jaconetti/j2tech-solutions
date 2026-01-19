@@ -203,10 +203,18 @@
       "normal_desc": "Standard timeline",
       "flexible": "Flexible (60+ days)",
       "flexible_desc": "-15% discount"
-    },
-    "result": {
+    },    "step_support": {
+      "title": "Monthly Hours",
+      "subtitle": "How many support hours do you need per month?",
+      "10h_desc": "Ideal for simple websites and systems",
+      "20h_desc": "Recommended for apps and medium-sized systems",
+      "40h_desc": "For complex projects with high demand",
+      "custom": "Custom",
+      "custom_desc": "I need a personalized plan"
+    },    "result": {
       "title": "Your Estimate",
       "price_range": "Price Range",
+      "monthly_price": "Monthly Price",
       "timeline": "Estimated Timeline",
       "weeks": "weeks",
       "based_on": "Based on:",

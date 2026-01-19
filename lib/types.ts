@@ -83,10 +83,11 @@ export interface BlogPost {
 
 // Calculator Types
 export interface CalculatorData {
-  projectType: 'mvp' | 'app_mobile' | 'saas' | 'ecommerce' | 'corporate'
+  projectType: 'mvp' | 'app_mobile' | 'saas' | 'ecommerce' | 'corporate' | 'institutional' | 'monthly_support'
   complexity: 'simple' | 'medium' | 'complex'
   features: string[]
   deadline: 'urgent' | 'normal' | 'flexible'
+  supportHours?: '10' | '20' | '40' | 'custom'
 }
 
 export interface CalculatorEstimate {

@@ -44,6 +44,30 @@ const BASE_TIMELINE: Record<string, number> = {
 }
 
 export function calculateEstimate(data: CalculatorData): CalculatorEstimate {
+  // Special handling for monthly support
+  if (data.projectType === 'monthly_support') {
+    const supportPrices: Record<string, number> = {
+      '10': 1500,
+      '20': 2800,
+      '40': 5200,
+      'custom': 3500
+    }
+    
+    const price = supportPrices[data.supportHours || '10'] || 1500
+    
+    return {
+      min: price,
+      max: price,
+      timeline: 'mensal',
+      breakdown: {
+        base: price,
+        complexity: 0,
+        features: 0,
+        deadline: 0
+      }
+    }
+  }
+
   const basePrice = BASE_PRICES[data.projectType] ?? 25000
   const complexityFactor = COMPLEXITY_MULTIPLIER[data.complexity] ?? 1.0
   
