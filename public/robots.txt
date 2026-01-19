@@ -1,3 +1,10 @@
 # Allow all web crawlers to access all content
 User-agent: *
 Allow: /
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /*/admin
+
+# Sitemap location
+Sitemap: https://j2tech.solutions/sitemap.xml

@@ -6,6 +6,7 @@ import { Calendar, Clock, ArrowLeft } from 'lucide-react'
 import { Metadata } from 'next'
 import { db } from '@/lib/db'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { getBlogPostSchema, getBreadcrumbSchema } from '@/lib/structured-data'
 
 const MDXComponents = {
   h1: (props: any) => <h1 className="text-4xl font-bold mb-4 mt-8" {...props} />,
@@ -107,9 +108,41 @@ export async function generateMetadata({
     }
   }
   
+  const baseUrl = 'https://j2tech.solutions'
+  
   return {
     title: post.title,
     description: post.description,
+    keywords: post.tags,
+    authors: [{ name: 'J2 Tech Solutions' }],
+    alternates: {
+      canonical: `/${params.locale}/blog/${params.slug}`,
+      languages: {
+        'pt-BR': `/pt/blog/${params.slug}`,
+        'en-US': `/en/blog/${params.slug}`
+      }
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.createdAt.toISOString(),
+      authors: ['J2 Tech Solutions'],
+      tags: post.tags,
+      url: `/${params.locale}/blog/${params.slug}`,
+      images: post.coverImage ? [{
+        url: post.coverImage,
+        width: 1200,
+        height: 630,
+        alt: post.title
+      }] : undefined
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: post.coverImage ? [post.coverImage] : undefined
+    }
   }
 }
 
@@ -123,9 +156,40 @@ export default async function BlogPostPage({
   if (!post) {
     notFound()
   }
+
+  // Get post with updatedAt for schema
+  const postWithUpdatedAt = await db.post.findUnique({
+    where: { slug: params.slug }
+  })
+  
+  // Generate structured data
+  const blogPostSchema = getBlogPostSchema(params.locale, {
+    title: post.title,
+    description: post.description,
+    slug: post.slug,
+    createdAt: post.createdAt,
+    updatedAt: postWithUpdatedAt?.updatedAt || post.createdAt,
+    readTime: post.readTime,
+    category: post.category
+  })
+
+  const breadcrumbSchema = getBreadcrumbSchema(params.locale, [
+    { name: 'Home', url: `/${params.locale}` },
+    { name: 'Blog', url: `/${params.locale}/blog` },
+    { name: post.title, url: `/${params.locale}/blog/${params.slug}` }
+  ])
   
   return (
     <div className="min-h-screen">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header com imagem de capa */}
       <section className="relative bg-gradient-to-b from-[rgb(var(--background))] to-[rgb(var(--surface))] py-12">
         <div className="container mx-auto max-w-4xl px-4">
