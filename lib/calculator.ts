@@ -49,18 +49,61 @@ export function calculateEstimate(data: CalculatorData): CalculatorEstimate {
     const supportPrices: Record<string, number> = {
       '10': 1500,
       '20': 2800,
-      '40': 5200,
-      'custom': 3500
+      '40': 5200
     }
     
-    const price = supportPrices[data.supportHours || '10'] || 1500
+    // If it's a predefined package
+    if (data.supportHours && supportPrices[data.supportHours]) {
+      const price = supportPrices[data.supportHours]
+      return {
+        min: price,
+        max: price,
+        timeline: 'mensal',
+        breakdown: {
+          base: price,
+          complexity: 0,
+          features: 0,
+          deadline: 0
+        }
+      }
+    }
     
+    // Custom hours calculation with progressive discount
+    const hours = parseInt(data.supportHours || '0')
+    if (hours > 0) {
+      let pricePerHour = 150 // Base price per hour
+      
+      // Progressive discount based on hours
+      if (hours >= 50) {
+        pricePerHour = 120 // 20% discount for 50+ hours
+      } else if (hours >= 40) {
+        pricePerHour = 130 // 13% discount for 40-49 hours
+      } else if (hours >= 20) {
+        pricePerHour = 140 // 7% discount for 20-39 hours
+      }
+      
+      const totalPrice = hours * pricePerHour
+      
+      return {
+        min: totalPrice,
+        max: totalPrice,
+        timeline: 'mensal',
+        breakdown: {
+          base: totalPrice,
+          complexity: 0,
+          features: 0,
+          deadline: 0
+        }
+      }
+    }
+    
+    // Fallback
     return {
-      min: price,
-      max: price,
+      min: 1500,
+      max: 1500,
       timeline: 'mensal',
       breakdown: {
-        base: price,
+        base: 1500,
         complexity: 0,
         features: 0,
         deadline: 0

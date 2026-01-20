@@ -211,7 +211,10 @@
       "20h_desc": "Recomendado para apps e sistemas de médio porte",
       "40h_desc": "Para projetos complexos com demanda alta",
       "custom": "Customizado",
-      "custom_desc": "Preciso de um plano personalizado"
+      "custom_desc": "Preciso de um plano personalizado",
+      "custom_hours_label": "Quantas horas você precisa por mês?",
+      "custom_hours_placeholder": "Ex: 15, 25, 60...",
+      "pricing_info": "Preço por hora: R$ 150 (até 19h) | R$ 140 (20-39h) | R$ 130 (40-49h) | R$ 120 (50+h)"
     },
     "result": {
       "title": "Sua Estimativa",

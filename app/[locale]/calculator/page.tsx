@@ -34,6 +34,7 @@ export default function CalculatorPage() {
   const [features, setFeatures] = useState<string[]>([])
   const [deadline, setDeadline] = useState('')
   const [supportHours, setSupportHours] = useState('')
+  const [customHours, setCustomHours] = useState('')
   const [estimate, setEstimate] = useState<any>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -57,7 +58,7 @@ export default function CalculatorPage() {
       complexity: complexity as any,
       features,
       deadline: deadline as any,
-      supportHours: supportHours as any
+      supportHours: supportHours === 'custom' ? customHours : supportHours
     })
     setEstimate(result)
     analytics.calculateBudget({ min: result?.min ?? 0, max: result?.max ?? 0 })
@@ -177,24 +178,49 @@ export default function CalculatorPage() {
                 <div className="space-y-4">
                   <p className="mb-4 text-sm text-[rgb(var(--muted))]">{t('step_support.subtitle')}</p>
                   {[
-                    { key: '10', label: '10h', desc: t('step_support.10h_desc') },
-                    { key: '20', label: '20h', desc: t('step_support.20h_desc') },
-                    { key: '40', label: '40h', desc: t('step_support.40h_desc') },
-                    { key: 'custom', label: t('step_support.custom'), desc: t('step_support.custom_desc') }
+                    { key: '10', label: '10h', desc: t('step_support.10h_desc'), price: 'R$ 1.500/mês' },
+                    { key: '20', label: '20h', desc: t('step_support.20h_desc'), price: 'R$ 2.800/mês' },
+                    { key: '40', label: '40h', desc: t('step_support.40h_desc'), price: 'R$ 5.200/mês' },
+                    { key: 'custom', label: t('step_support.custom'), desc: t('step_support.custom_desc'), price: '' }
                   ].map(option => (
                     <button
                       key={option.key}
-                      onClick={() => setSupportHours(option.key)}
+                      onClick={() => {
+                        setSupportHours(option.key)
+                        if (option.key !== 'custom') setCustomHours('')
+                      }}
                       className={`w-full rounded-lg border-2 p-4 text-left transition-all ${
                         supportHours === option.key
                           ? 'border-[rgb(var(--primary))] bg-[rgb(var(--primary))]/10'
                           : 'border-[rgb(var(--border))] hover:border-[rgb(var(--primary))]/50'
                       }`}
                     >
-                      <div className="mb-1 font-semibold">{option.label}</div>
+                      <div className="mb-1 flex items-center justify-between">
+                        <span className="font-semibold">{option.label}</span>
+                        {option.price && <span className="text-sm text-[rgb(var(--primary))]">{option.price}</span>}
+                      </div>
                       <div className="text-sm text-[rgb(var(--muted))]">{option.desc}</div>
                     </button>
                   ))}
+                  
+                  {supportHours === 'custom' && (
+                    <div className="mt-4 space-y-2">
+                      <Label htmlFor="customHours">{t('step_support.custom_hours_label')}</Label>
+                      <Input
+                        id="customHours"
+                        type="number"
+                        min="1"
+                        max="200"
+                        value={customHours}
+                        onChange={(e) => setCustomHours(e.target.value)}
+                        placeholder={t('step_support.custom_hours_placeholder')}
+                        className="mt-2"
+                      />
+                      <p className="text-xs text-[rgb(var(--muted))]">
+                        {t('step_support.pricing_info')}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -264,6 +290,13 @@ export default function CalculatorPage() {
                         {supportHours}h mensais inclusas
                       </div>
                     )}
+                    {isMonthlySupport && supportHours === 'custom' && customHours && (
+                      <div className="mt-4 text-sm text-[rgb(var(--muted))]">
+                        {customHours}h mensais • {formatCurrency(Math.round(estimate.min / parseInt(customHours)), locale)}/hora
+                      </div>
+                    )}
+                      </div>
+                    )}
                   </div>
 
                   <div className="text-sm text-[rgb(var(--muted))]">
@@ -279,6 +312,9 @@ export default function CalculatorPage() {
                       )}
                       {isMonthlySupport && supportHours !== 'custom' && (
                         <li>• Pacote de {supportHours} horas mensais</li>
+                      )}
+                      {isMonthlySupport && supportHours === 'custom' && customHours && (
+                        <li>• Pacote personalizado de {customHours} horas mensais</li>
                       )}
                     </ul>
                   </div>
@@ -353,7 +389,7 @@ export default function CalculatorPage() {
                   <Button
                     variant="gradient"
                     onClick={handleCalculate}
-                    disabled={!supportHours}
+                    disabled={!supportHours || (supportHours === 'custom' && (!customHours || parseInt(customHours) <= 0))}
                   >
                     {t('result.view_estimate')}
                   </Button>

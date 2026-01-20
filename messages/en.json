@@ -210,7 +210,10 @@
       "20h_desc": "Recommended for apps and medium-sized systems",
       "40h_desc": "For complex projects with high demand",
       "custom": "Custom",
-      "custom_desc": "I need a personalized plan"
+      "custom_desc": "I need a personalized plan",
+      "custom_hours_label": "How many hours do you need per month?",
+      "custom_hours_placeholder": "Ex: 15, 25, 60...",
+      "pricing_info": "Price per hour: $33 (up to 19h) | $31 (20-39h) | $29 (40-49h) | $26 (50+h)"
     },    "result": {
       "title": "Your Estimate",
       "price_range": "Price Range",
