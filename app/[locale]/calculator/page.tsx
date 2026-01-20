@@ -33,12 +33,8 @@ export default function CalculatorPage() {
   const [complexity, setComplexity] = useState('')
   const [features, setFeatures] = useState<string[]>([])
   const [deadline, setDeadline] = useState('')
-  const [supportHours, setSupportHours] = useState('')
-  const [customHours, setCustomHours] = useState('')
   const [estimate, setEstimate] = useState<any>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const isMonthlySupport = projectType === 'monthly_support'
 
   const { register, handleSubmit, formState: { errors } } = useForm<any>({
     resolver: zodResolver(calculatorLeadSchema.omit({ projectType: true, complexity: true, features: true, deadline: true, estimateMin: true, estimateMax: true, timeline: true }))
@@ -57,12 +53,11 @@ export default function CalculatorPage() {
       projectType: projectType as any,
       complexity: complexity as any,
       features,
-      deadline: deadline as any,
-      supportHours: supportHours === 'custom' ? customHours : supportHours
+      deadline: deadline as any
     })
     setEstimate(result)
     analytics.calculateBudget({ min: result?.min ?? 0, max: result?.max ?? 0 })
-    setStep(isMonthlySupport ? 3 : 5)
+    setStep(5)
   }
 
   const onSubmitLead = async (data: any) => {
@@ -103,7 +98,7 @@ export default function CalculatorPage() {
           </div>
 
           <div className="mt-8 flex items-center justify-center gap-2">
-            {(isMonthlySupport ? [1, 2] : [1, 2, 3, 4]).map(i => (
+            {[1, 2, 3, 4].map(i => (
               <div
                 key={i}
                 className={`h-2 w-16 rounded-full transition-colors ${
@@ -121,9 +116,8 @@ export default function CalculatorPage() {
             <CardHeader>
               <CardTitle className="text-center">
                 {step === 1 && t('step1.title')}
-                {step === 2 && (isMonthlySupport ? t('step_support.title') : t('step2.title'))}
-                {step === 3 && !isMonthlySupport && t('step3.title')}
-                {step === 3 && isMonthlySupport && t('result.title')}
+                {step === 2 && t('step2.title')}
+                {step === 3 && t('step3.title')}
                 {step === 4 && t('step4.title')}
                 {step === 5 && t('result.title')}
               </CardTitle>
@@ -151,7 +145,7 @@ export default function CalculatorPage() {
                 </div>
               )}
 
-              {step === 2 && !isMonthlySupport && (
+              {step === 2 && (
                 <div className="space-y-4">
                   {[
                     { key: 'simple' },
@@ -174,57 +168,7 @@ export default function CalculatorPage() {
                 </div>
               )}
 
-              {step === 2 && isMonthlySupport && (
-                <div className="space-y-4">
-                  <p className="mb-4 text-sm text-[rgb(var(--muted))]">{t('step_support.subtitle')}</p>
-                  {[
-                    { key: '10', label: '10h', desc: t('step_support.10h_desc'), price: 'R$ 1.500/mês' },
-                    { key: '20', label: '20h', desc: t('step_support.20h_desc'), price: 'R$ 2.800/mês' },
-                    { key: '40', label: '40h', desc: t('step_support.40h_desc'), price: 'R$ 5.200/mês' },
-                    { key: 'custom', label: t('step_support.custom'), desc: t('step_support.custom_desc'), price: '' }
-                  ].map(option => (
-                    <button
-                      key={option.key}
-                      onClick={() => {
-                        setSupportHours(option.key)
-                        if (option.key !== 'custom') setCustomHours('')
-                      }}
-                      className={`w-full rounded-lg border-2 p-4 text-left transition-all ${
-                        supportHours === option.key
-                          ? 'border-[rgb(var(--primary))] bg-[rgb(var(--primary))]/10'
-                          : 'border-[rgb(var(--border))] hover:border-[rgb(var(--primary))]/50'
-                      }`}
-                    >
-                      <div className="mb-1 flex items-center justify-between">
-                        <span className="font-semibold">{option.label}</span>
-                        {option.price && <span className="text-sm text-[rgb(var(--primary))]">{option.price}</span>}
-                      </div>
-                      <div className="text-sm text-[rgb(var(--muted))]">{option.desc}</div>
-                    </button>
-                  ))}
-                  
-                  {supportHours === 'custom' && (
-                    <div className="mt-4 space-y-2">
-                      <Label htmlFor="customHours">{t('step_support.custom_hours_label')}</Label>
-                      <Input
-                        id="customHours"
-                        type="number"
-                        min="1"
-                        max="200"
-                        value={customHours}
-                        onChange={(e) => setCustomHours(e.target.value)}
-                        placeholder={t('step_support.custom_hours_placeholder')}
-                        className="mt-2"
-                      />
-                      <p className="text-xs text-[rgb(var(--muted))]">
-                        {t('step_support.pricing_info')}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {step === 3 && !isMonthlySupport && (
+              {step === 3 && (
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
                     'auth', 'admin', 'payments', 'notifications',
@@ -268,54 +212,27 @@ export default function CalculatorPage() {
                 </div>
               )}
 
-              {(step === 5 || (step === 3 && isMonthlySupport)) && estimate && (
+              {step === 5 && estimate && (
                 <div className="space-y-6">
                   <div className="rounded-xl bg-gradient-to-r from-[rgb(var(--primary))]/20 to-[rgb(var(--secondary))]/20 p-8 text-center">
                     <div className="mb-2 text-sm font-semibold text-[rgb(var(--muted))]">
-                      {isMonthlySupport ? t('result.monthly_price') : t('result.price_range')}
+                      {t('result.price_range')}
                     </div>
                     <div className="text-4xl font-bold gradient-text">
-                      {isMonthlySupport 
-                        ? `${formatCurrency(estimate.min, locale)}/mês`
-                        : `${formatCurrency(estimate.min, locale)} - ${formatCurrency(estimate.max, locale)}`
-                      }
+                      {formatCurrency(estimate.min, locale)} - {formatCurrency(estimate.max, locale)}
                     </div>
-                    {!isMonthlySupport && (
-                      <div className="mt-4 text-sm text-[rgb(var(--muted))]">
-                        {t('result.timeline')}: {estimate.timeline} {t('result.weeks')}
-                      </div>
-                    )}
-                    {isMonthlySupport && supportHours !== 'custom' && (
-                      <div className="mt-4 text-sm text-[rgb(var(--muted))]">
-                        {supportHours}h mensais inclusas
-                      </div>
-                    )}
-                    {isMonthlySupport && supportHours === 'custom' && customHours && (
-                      <div className="mt-4 text-sm text-[rgb(var(--muted))]">
-                        {customHours}h mensais • {formatCurrency(Math.round(estimate.min / parseInt(customHours)), locale)}/hora
-                      </div>
-                    )}
-                      </div>
-                    )}
+                    <div className="mt-4 text-sm text-[rgb(var(--muted))]">
+                      {t('result.timeline')}: {estimate.timeline} {t('result.weeks')}
+                    </div>
                   </div>
 
                   <div className="text-sm text-[rgb(var(--muted))]">
                     <p className="mb-2 font-semibold">{t('result.based_on')}</p>
                     <ul className="space-y-1">
                       <li>• {t('step1.title')}: {t(`step1.${projectType}`)}</li>
-                      {!isMonthlySupport && (
-                        <>
-                          <li>• {t('step2.title')}: {t(`step2.${complexity}`)}</li>
-                          <li>• {features.length} {t('step3.title').toLowerCase()}</li>
-                          <li>• {t('step4.title')}: {t(`step4.${deadline}`)}</li>
-                        </>
-                      )}
-                      {isMonthlySupport && supportHours !== 'custom' && (
-                        <li>• Pacote de {supportHours} horas mensais</li>
-                      )}
-                      {isMonthlySupport && supportHours === 'custom' && customHours && (
-                        <li>• Pacote personalizado de {customHours} horas mensais</li>
-                      )}
+                      <li>• {t('step2.title')}: {t(`step2.${complexity}`)}</li>
+                      <li>• {features.length} {t('step3.title').toLowerCase()}</li>
+                      <li>• {t('step4.title')}: {t(`step4.${deadline}`)}</li>
                     </ul>
                   </div>
 
@@ -350,33 +267,25 @@ export default function CalculatorPage() {
               )}
 
               <div className="mt-8 flex justify-between">
-                {step > 1 && ((step < 5 && !isMonthlySupport) || (step < 3 && isMonthlySupport)) && (
+                {step > 1 && step < 5 && (
                   <Button variant="outline" onClick={() => setStep(step - 1)}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     {t('result.previous')}
                   </Button>
                 )}
-                {((step === 5 && !isMonthlySupport) || (step === 3 && isMonthlySupport)) && (
-                  <Button variant="outline" onClick={() => { setStep(1); setEstimate(null); setProjectType(''); setSupportHours('') }}>
+                {step === 5 && (
+                  <Button variant="outline" onClick={() => { setStep(1); setEstimate(null) }}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     {t('result.recalculate')}
                   </Button>
                 )}
                 <div className="ml-auto" />
-                {step === 1 && projectType && (
-                  <Button
-                    variant="gradient"
-                    onClick={() => setStep(step + 1)}
-                  >
-                    {t('result.next')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                )}
-                {step > 1 && step < 4 && !isMonthlySupport && (
+                {step < 4 && (
                   <Button
                     variant="gradient"
                     onClick={() => setStep(step + 1)}
                     disabled={
+                      (step === 1 && !projectType) ||
                       (step === 2 && !complexity) ||
                       (step === 3 && features.length === 0)
                     }
@@ -385,16 +294,7 @@ export default function CalculatorPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 )}
-                {step === 2 && isMonthlySupport && (
-                  <Button
-                    variant="gradient"
-                    onClick={handleCalculate}
-                    disabled={!supportHours || (supportHours === 'custom' && (!customHours || parseInt(customHours) <= 0))}
-                  >
-                    {t('result.view_estimate')}
-                  </Button>
-                )}
-                {step === 4 && !isMonthlySupport && (
+                {step === 4 && (
                   <Button
                     variant="gradient"
                     onClick={handleCalculate}
