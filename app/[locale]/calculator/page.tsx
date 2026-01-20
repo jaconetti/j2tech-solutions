@@ -327,12 +327,20 @@ export default function CalculatorPage() {
                   </Button>
                 )}
                 <div className="ml-auto" />
-                {step < 4 && !isMonthlySupport && (
+                {step === 1 && projectType && (
+                  <Button
+                    variant="gradient"
+                    onClick={() => setStep(step + 1)}
+                  >
+                    {t('result.next')}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                )}
+                {step > 1 && step < 4 && !isMonthlySupport && (
                   <Button
                     variant="gradient"
                     onClick={() => setStep(step + 1)}
                     disabled={
-                      (step === 1 && !projectType) ||
                       (step === 2 && !complexity) ||
                       (step === 3 && features.length === 0)
                     }
