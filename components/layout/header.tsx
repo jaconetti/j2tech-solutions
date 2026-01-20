@@ -57,7 +57,7 @@ export default function Header() {
           <Link href="/" className="relative z-10 flex items-center gap-2">
             <div className="relative h-8 w-8 lg:h-10 lg:w-10">
               <Image
-                src="/favicon.svg"
+                src="/logo.png"
                 alt="J2 Tech Solutions"
                 fill
                 className="object-contain"
@@ -65,7 +65,7 @@ export default function Header() {
               />
             </div>
             <span className="hidden text-lg font-bold gradient-text lg:block">
-              J2 Tech
+              Tech Solutions
             </span>
           </Link>
 

@@ -97,9 +97,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       }
     },
     icons: {
-      icon: '/favicon.svg',
-      shortcut: '/favicon.svg',
-      apple: '/favicon.svg'
+      icon: '/logo.jpg',
+      shortcut: '/logo.jpg',
+      apple: '/logo.jpg'
     },
     manifest: '/manifest.json',
     verification: {

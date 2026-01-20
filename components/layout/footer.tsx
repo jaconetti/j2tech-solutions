@@ -41,14 +41,14 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2">
               <div className="relative h-8 w-8">
                 <Image
-                  src="/favicon.svg"
+                  src="/logo.png"
                   alt="J2 Tech Solutions"
                   fill
                   className="object-contain"
                 />
               </div>
               <span className="text-lg font-bold gradient-text">
-                J2 Tech
+                Tech Solutions
               </span>
             </Link>
             <p className="mt-4 text-sm text-[rgb(var(--muted))]">
