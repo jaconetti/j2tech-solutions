@@ -185,6 +185,7 @@
     "step3": {
       "title": "Features",
       "subtitle": "What features do you need?",
+      "static": "Static content",
       "auth": "User authentication",
       "admin": "Admin panel",
       "payments": "Online payments",
@@ -197,11 +198,11 @@
     "step4": {
       "title": "Timeline",
       "subtitle": "How urgent is the project?",
-      "urgent": "Urgent (< 30 days)",
+      "urgent": "Urgent (3-4 weeks)",
       "urgent_desc": "+30% in price",
-      "normal": "Normal (30-60 days)",
+      "normal": "Normal (4-8 weeks)",
       "normal_desc": "Standard timeline",
-      "flexible": "Flexible (60+ days)",
+      "flexible": "Flexible (8+ weeks)",
       "flexible_desc": "-15% discount"
     },    "step_support": {
       "title": "Monthly Hours",

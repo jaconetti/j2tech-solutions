@@ -185,6 +185,7 @@
     "step3": {
       "title": "Funcionalidades",
       "subtitle": "Quais funcionalidades você precisa?",
+      "static": "Conteúdo estático",
       "auth": "Autenticação de usuários",
       "admin": "Painel administrativo",
       "payments": "Pagamentos online",
@@ -197,11 +198,11 @@
     "step4": {
       "title": "Prazo",
       "subtitle": "Qual a urgência do projeto?",
-      "urgent": "Urgente (< 30 dias)",
+      "urgent": "Urgente (3-4 semanas)",
       "urgent_desc": "+30% no valor",
-      "normal": "Normal (30-60 dias)",
+      "normal": "Normal (4-8 semanas)",
       "normal_desc": "Prazo padrão",
-      "flexible": "Flexível (60+ dias)",
+      "flexible": "Flexível (8+ semanas)",
       "flexible_desc": "-15% desconto"
     },
     "step_support": {

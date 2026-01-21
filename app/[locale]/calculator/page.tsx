@@ -227,7 +227,7 @@ export default function CalculatorPage() {
               {step === 3 && !isMonthlySupport && (
                 <div className="grid gap-3 md:grid-cols-2">
                   {[
-                    'auth', 'admin', 'payments', 'notifications',
+                    'static', 'auth', 'admin', 'payments', 'notifications',
                     'chat', 'api', 'upload', 'analytics'
                   ].map(feature => (
                     <button

@@ -17,6 +17,7 @@ const COMPLEXITY_MULTIPLIER: Record<string, number> = {
 }
 
 const FEATURE_COSTS: Record<string, number> = {
+  static: 400,
   auth: 800,
   admin: 1200,
   payments: 2000,
