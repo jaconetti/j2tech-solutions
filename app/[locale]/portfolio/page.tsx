@@ -35,7 +35,8 @@ const projects: Project[] = [
     description: 'portfolio_project1_desc',
     category: 'saas',
     tags: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80',
+    image: '/screencapture-j2tech-solutions-br-pt-2026-01-21-09_25_43.png',
+    link: 'https://viajeorganizado.com.br',
     status: 'production'
   },
   {
