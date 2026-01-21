@@ -9,6 +9,17 @@ import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
 import AnimatedSection from '@/components/animated-section'
 
+interface Project {
+  id: string
+  title: string
+  description: string
+  category: string
+  tags: string[]
+  image: string
+  link?: string
+  status: 'production' | 'beta'
+}
+
 const categories = [
   { key: 'all', label: 'filters.all' },
   { key: 'mvp', label: 'filters.mvp' },
@@ -17,7 +28,7 @@ const categories = [
   { key: 'ecommerce', label: 'filters.ecommerce' }
 ]
 
-const projects = [
+const projects: Project[] = [
   {
     id: '1',
     title: 'ViajeOrganizado',
@@ -33,7 +44,8 @@ const projects = [
     description: 'portfolio_project2_desc',
     category: 'mvp',
     tags: ['Next.js', 'TypeScript', 'Prisma'],
-    image: 'https://images.unsplash.com/photo-1586864387634-29a5f6043818?w=800&q=80',
+    image: '/screencapture-dmn4r7jdc3ye-cloudfront-net-2026-01-21-09_29_29.png',
+    link: 'https://dmn4r7jdc3ye.cloudfront.net/',
     status: 'beta'
   },
   {
@@ -94,7 +106,7 @@ export default function PortfolioPage() {
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className={project.id === '2' ? 'object-cover object-top' : 'object-cover'}
                   />
                   <div className="absolute right-2 top-2">
                     <Badge variant="default" className="bg-black/50 backdrop-blur-sm">
@@ -123,10 +135,22 @@ export default function PortfolioPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" size="sm" className="w-full">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    {t('view_project')}
-                  </Button>
+                  {project.link ? (
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={() => window.open(project.link, '_blank')}
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      {t('view_project')}
+                    </Button>
+                  ) : (
+                    <Button variant="outline" size="sm" className="w-full" disabled>
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      {t('view_project')}
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
               </AnimatedSection>
