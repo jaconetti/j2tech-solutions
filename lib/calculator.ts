@@ -129,17 +129,18 @@ export function calculateEstimate(data: CalculatorData): CalculatorEstimate {
   const min = Math.round(total * 0.8)
   const max = Math.round(total * 1.2)
   
-  // Calculate timeline
+  // Calculate timeline based on selected deadline
   const baseWeeks = BASE_TIMELINE[data.projectType] ?? 6
   const complexityWeeks = data.complexity === 'complex' ? 4 : data.complexity === 'simple' ? -2 : 0
   const featuresWeeks = Math.floor((data?.features?.length ?? 0) / 2)
   const totalWeeks = baseWeeks + complexityWeeks + featuresWeeks
   
+  // Use fixed ranges based on deadline selection to match UI labels
   const timeline = data.deadline === 'urgent' 
-    ? `${Math.max(3, Math.floor(totalWeeks * 0.7))}-${Math.floor(totalWeeks * 0.8)}`
+    ? '3-4'
     : data.deadline === 'flexible'
-    ? `${totalWeeks}-${totalWeeks + 4}`
-    : `${totalWeeks}-${totalWeeks + 2}`
+    ? `8-${totalWeeks + 4}`
+    : '4-8'
   
   return {
     min,
