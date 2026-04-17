@@ -42,24 +42,18 @@ export default function HomePage() {
               </Link>
             </div>
             
-            <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="mt-12 grid grid-cols-2 gap-8 max-w-xl mx-auto">
               <div>
                 <div className="text-3xl font-bold gradient-text lg:text-4xl">
-                  <AnimatedCounter target={50} suffix="+" />
+                  <AnimatedCounter target={5} suffix="+" />
                 </div>
                 <div className="mt-1 text-sm text-[rgb(var(--muted))]">{t('hero.stats.projects')}</div>
               </div>
               <div>
                 <div className="text-3xl font-bold gradient-text lg:text-4xl">
-                  <AnimatedCounter target={30} suffix="+" />
+                  <AnimatedCounter target={3} suffix="+" />
                 </div>
                 <div className="mt-1 text-sm text-[rgb(var(--muted))]">{t('hero.stats.clients')}</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold gradient-text lg:text-4xl">
-                  <AnimatedCounter target={98} suffix="%" />
-                </div>
-                <div className="mt-1 text-sm text-[rgb(var(--muted))]">{t('hero.stats.satisfaction')}</div>
               </div>
             </div>
           </div>

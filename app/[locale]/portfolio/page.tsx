@@ -46,7 +46,7 @@ const projects: Project[] = [
     category: 'mvp',
     tags: ['Next.js', 'TypeScript', 'Prisma'],
     image: '/screencapture-dmn4r7jdc3ye-cloudfront-net-2026-01-21-09_29_29.png',
-    link: 'https://dmn4r7jdc3ye.cloudfront.net/',
+    link: 'https://www.zaz-conversor.com.br/',
     status: 'beta'
   },
   {

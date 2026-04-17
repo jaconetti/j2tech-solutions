@@ -16,10 +16,9 @@ export default function AboutPage() {
   const tCommon = useTranslations('common')
   
   const stats = [
-    { value: 50, suffix: '+', label: t('stats.projects') },
-    { value: 30, suffix: '+', label: t('stats.clients') },
-    { value: 5, suffix: '', label: t('stats.years') },
-    { value: 98, suffix: '%', label: t('stats.satisfaction') }
+    { value: 5, suffix: '+', label: t('stats.projects') },
+    { value: 3, suffix: '+', label: t('stats.clients') },
+    { value: 5, suffix: '', label: t('stats.years') }
   ]
 
   return (
