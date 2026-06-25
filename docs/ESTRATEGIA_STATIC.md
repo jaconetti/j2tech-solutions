@@ -46,8 +46,8 @@ export async function POST(request: Request) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      from: 'contato@j2tech.com',
-      to: 'jefferson@j2tech.com',
+      from: 'contato@j2tech-solutions.com.br',
+      to: 'contato@j2tech-solutions.com.br',
       subject: 'Novo Contato',
       html: `<p>Nome: ${data.name}</p>...`
     })

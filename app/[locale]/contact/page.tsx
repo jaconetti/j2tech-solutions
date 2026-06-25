@@ -158,8 +158,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="mb-1 font-semibold">{t('email_title')}</h3>
-                      <a href="mailto:contato@j2tech.com" className="text-sm text-[rgb(var(--muted))] hover:text-[rgb(var(--primary))]">
-                        contato@j2tech.com
+                      <a href="mailto:contato@j2tech-solutions.com.br" className="text-sm text-[rgb(var(--muted))] hover:text-[rgb(var(--primary))]">
+                        contato@j2tech-solutions.com.br
                       </a>
                     </div>
                   </div>

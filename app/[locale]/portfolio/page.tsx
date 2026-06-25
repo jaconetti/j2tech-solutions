@@ -41,21 +41,42 @@ const projects: Project[] = [
   },
   {
     id: '2',
-    title: 'Conversor de Etiquetas',
-    description: 'portfolio_project2_desc',
+    title: 'ZAZ Conversor',
+    description: 'Conversor de etiquetas para e-commerce com automação completa, permitindo que os usuários convertam etiquetas de produtos de diferentes formatos e plataformas de forma rápida e eficiente.',
     category: 'mvp',
-    tags: ['Next.js', 'TypeScript', 'Prisma'],
+    tags: ['Next.js', 'TypeScript', 'AWS Lambda', 'CloudFront', 'S3', 'Serverless', 'Bitbucket', 'Stripe'],
     image: '/screencapture-dmn4r7jdc3ye-cloudfront-net-2026-01-21-09_29_29.png',
     link: 'https://www.zaz-conversor.com.br/',
     status: 'beta'
   },
   {
     id: '3',
-    title: 'App E-commerce',
+    title: 'App E-commerce - Norte Natural',
     description: 'portfolio_project3_desc',
     category: 'ecommerce',
-    tags: ['React Native', 'Node.js', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&q=80',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
+    image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/norte-natural-vercel-app.png',
+    link: 'https://norte-natural.vercel.app/',
+    status: 'production'
+  },
+  {
+    id: '4',
+    title: 'App Minha Bíblia',
+    description: 'Aplicativo de estudo bíblico com recursos de leitura, anotações e planos de estudo',
+    category: 'app_mobile',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
+    image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/minhabiblia-app-br.png',
+    link: 'https://www.minhabiblia.app.br/',
+    status: 'production'
+  },
+  {
+    id: '5',
+    title: 'TrainX App',
+    description: 'Aplicativo de treino físico com recursos de acompanhamento de exercícios, planos de treino e estatísticas',
+    category: 'app_mobile',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
+    image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/screencapture-trainx-web-vercel-app-connect-2026-06-25-14_37_06.png',
+    link: 'https://trainx-web.vercel.app/',
     status: 'production'
   }
 ]

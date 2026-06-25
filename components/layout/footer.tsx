@@ -119,10 +119,10 @@ export default function Footer() {
               <li className="flex items-start gap-2 text-sm text-[rgb(var(--muted))]">
                 <Mail className="h-5 w-5 flex-shrink-0" />
                 <a
-                  href="mailto:contato@j2tech.com"
+                  href="mailto:contato@j2tech-solutions.com.br"
                   className="hover:text-[rgb(var(--primary))]"
                 >
-                  contato@j2tech.com
+                  contato@j2tech-solutions.com.br
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-[rgb(var(--muted))]">

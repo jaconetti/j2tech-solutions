@@ -59,7 +59,7 @@ export async function POST(request: Request) {
         body: htmlBody,
         is_html: true,
         recipient_email: 'jeferson.jaconetti@gmail.com',
-        sender_email: appUrl ? `noreply@${new URL(appUrl).hostname}` : 'noreply@j2tech.com',
+        sender_email: appUrl ? `noreply@${new URL(appUrl).hostname}` : 'noreply@j2tech-solutions.com.br',
         sender_alias: appName
       })
     })
