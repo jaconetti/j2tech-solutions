@@ -47,7 +47,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'AWS Lambda', 'CloudFront', 'S3', 'Serverless', 'Bitbucket', 'Stripe'],
     image: '/screencapture-dmn4r7jdc3ye-cloudfront-net-2026-01-21-09_29_29.png',
     link: 'https://www.zaz-conversor.com.br/',
-    status: 'beta'
+    status: 'production'
   },
   {
     id: '3',
@@ -57,7 +57,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
     image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/norte-natural-vercel-app.png',
     link: 'https://norte-natural.vercel.app/',
-    status: 'production'
+    status: 'beta'
   },
   {
     id: '4',
@@ -77,7 +77,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
     image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/screencapture-trainx-web-vercel-app-connect-2026-06-25-14_37_06.png',
     link: 'https://trainx-web.vercel.app/',
-    status: 'production'
+    status: 'beta'
   }
 ]
 
