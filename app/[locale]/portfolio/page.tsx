@@ -31,10 +31,10 @@ const categories = [
 const projects: Project[] = [
   {
     id: '1',
-    title: 'ViajeOrganizado',
-    description: 'portfolio_project1_desc',
+    title: 'Viaje Organizado',
+    description: 'Planejador de viagens inteligente que ajuda viajantes a organizar roteiros completos, incluindo transporte, hospedagem, passeios e atividades, com recomendações personalizadas e integração com serviços de reserva.',
     category: 'saas',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    tags: ['Next.js', 'TypeScript', 'Firebase', 'Stripe'],
     image: '/viajeorganizado.png',
     link: 'https://viajeorganizado.com.br',
     status: 'production'
@@ -42,9 +42,9 @@ const projects: Project[] = [
   {
     id: '2',
     title: 'ZAZ Conversor',
-    description: 'Conversor de etiquetas para e-commerce com automação completa, permitindo que os usuários convertam etiquetas de produtos de diferentes formatos e plataformas de forma rápida e eficiente.',
-    category: 'mvp',
-    tags: ['Next.js', 'TypeScript', 'AWS Lambda', 'CloudFront', 'S3', 'Serverless', 'Bitbucket', 'Stripe'],
+    description: 'SaaS brasileiro que converte etiquetas ZPL e EPL para PDF/PNG online. O único serviço nacional que suporta ambos os formatos, atendendo vendedores do Mercado Livre, Shopee, Amazon FBA e distribuidoras com impressoras térmicas. Conta com planos free e pagos via Stripe, autenticação AWS e pré-renderização estática para SEO.',
+    category: 'saas',
+    tags: ['React', 'JavaScript', 'AWS Lambda', 'CloudFront', 'S3', 'Stripe', 'Styled Components', 'React Router'],
     image: '/screencapture-dmn4r7jdc3ye-cloudfront-net-2026-01-21-09_29_29.png',
     link: 'https://www.zaz-conversor.com.br/',
     status: 'production'
@@ -52,7 +52,7 @@ const projects: Project[] = [
   {
     id: '3',
     title: 'App E-commerce - Norte Natural',
-    description: 'portfolio_project3_desc',
+    description: 'Aplicativo de e-commerce para a marca Norte Natural, oferecendo uma experiência de compra online intuitiva e integrada com sistemas de pagamento e gerenciamento de estoque.',
     category: 'ecommerce',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
     image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/norte-natural-vercel-app.png',
@@ -71,12 +71,22 @@ const projects: Project[] = [
   },
   {
     id: '5',
-    title: 'TrainX App',
-    description: 'Aplicativo de treino físico com recursos de acompanhamento de exercícios, planos de treino e estatísticas',
+    title: 'TrainX',
+    description: 'Plataforma SaaS para personal trainers gerenciarem alunos, prescrever treinos, acompanhar avaliações físicas, agendar sessões, processar pagamentos e se conectar com novos clientes via marketplace.',
     category: 'app_mobile',
-    tags: ['Next.js', 'TypeScript', 'Supabase', 'Vercel'],
+    tags: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Prisma', 'Tailwind CSS', 'Zustand', 'TanStack Query', 'Vercel', 'PWA', 'Cloudflare R2', 'Stripe', 'Asaas'],
     image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/screencapture-trainx-web-vercel-app-connect-2026-06-25-14_37_06.png',
     link: 'https://trainx-web.vercel.app/',
+    status: 'beta'
+  },
+  {
+    id: '6',
+    title: 'AprovaTech Concursos',
+    description: 'Plataforma SaaS de estudos para concursos públicos com planos de estudo personalizados, cronograma semanal, timer Pomodoro, simulados e acompanhamento de progresso',
+    category: 'saas',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Firebase', 'Tailwind CSS', 'Vercel', 'Asaas', 'Brevo'],
+    image: 'https://0bqvv1lslktszmpz.public.blob.vercel-storage.com/media-j2tech/screencapture-aprovatechconcursos-br-2026-06-26-16_38_57.png',
+    link: 'https://aprovatechconcursos.com.br',
     status: 'beta'
   }
 ]
